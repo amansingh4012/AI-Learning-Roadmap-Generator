@@ -474,17 +474,24 @@ function LearningMapFlow({ data, onNavigateHome }) {
             </select>
           </div>
         </div>
-        <div className="export-buttons">
-          <button className="export-button json-button" onClick={handleExportJSON}>
-            📥 Export as JSON
-          </button>
-          <button 
-            className="export-button pdf-button" 
-            onClick={handleExportPDF}
-            disabled={isExporting}
-          >
-            {isExporting ? '⏳ Generating PDF...' : '📄 Download as PDF'}
-          </button>
+        <div className="right-controls">
+          {!selectedNode && (
+            <div className="hint-message">
+              💡 Click on any node to see details
+            </div>
+          )}
+          <div className="export-buttons">
+            <button className="export-button json-button" onClick={handleExportJSON}>
+              📥 Export as JSON
+            </button>
+            <button 
+              className="export-button pdf-button" 
+              onClick={handleExportPDF}
+              disabled={isExporting}
+            >
+              {isExporting ? '⏳ Generating PDF...' : '📄 Download as PDF'}
+            </button>
+          </div>
         </div>
       </div>
 
