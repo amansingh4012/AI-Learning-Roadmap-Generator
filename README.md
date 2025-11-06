@@ -234,27 +234,51 @@ App.jsx (Main Container)
 
 ## 🚢 Deployment
 
-### Deploy Backend (Render)
+### 🎯 Deploy to Render (Full Stack - Recommended)
 
-1. Create a new Web Service on [Render](https://render.com)
-2. Connect your GitHub repository
-3. Configure:
-   - Build Command: `cd backend && npm install`
-   - Start Command: `cd backend && npm start`
-4. Add environment variable: `OPENAI_API_KEY`
+This project is configured to deploy both frontend and backend together on Render as a single web service.
 
-### Deploy Frontend (Vercel)
+**Quick Deploy:**
 
-1. Install Vercel CLI: `npm i -g vercel`
-2. Navigate to frontend directory: `cd frontend`
-3. Deploy: `vercel --prod`
-4. Update API endpoint in code to your Render backend URL
+1. **Push to GitHub**
+   ```bash
+   git add .
+   git commit -m "Deploy to Render"
+   git push origin main
+   ```
 
-**Or use Vercel Dashboard:**
-1. Import your GitHub repository
-2. Set root directory to `frontend`
-3. Framework Preset: Vite
-4. Add environment variable for backend URL if needed
+2. **Deploy on Render**
+   - Go to [Render Dashboard](https://dashboard.render.com/)
+   - Click **"New +"** → **"Web Service"**
+   - Connect your GitHub repository
+   - Configure:
+     - **Build Command:** `npm run build`
+     - **Start Command:** `npm start`
+   - Add environment variable: `GEMINI_API_KEY=your_gemini_api_key`
+
+3. **Done!** Your app will be live at `https://your-app.onrender.com`
+
+**📚 Detailed Guides:**
+- **Quick Start:** See `DEPLOY_NOW.md` for step-by-step instructions
+- **Full Guide:** See `RENDER_DEPLOYMENT.md` for comprehensive documentation
+- **Local Testing:** See `LOCAL_TEST_GUIDE.md` to test before deploying
+
+**How it works:**
+- Frontend builds to `frontend/dist/`
+- Backend serves both API (`/api/*`) and static frontend files
+- Single deployment = easier management + lower costs
+
+### Alternative: Separate Deployments
+
+**Backend on Render:**
+1. Deploy backend folder separately
+2. Build Command: `cd backend && npm install`
+3. Start Command: `cd backend && npm start`
+
+**Frontend on Vercel:**
+1. Deploy frontend folder separately
+2. Framework: Vite
+3. Update API endpoint in frontend code
 
 ## 🧪 Testing
 
