@@ -1,7 +1,9 @@
 services:
   - type: web
-    name: ai-learning-roadmap-generator
-    runtime: node
+    name: ai-learning-roadmap
+    env: node
+    region: oregon
+    plan: free
     buildCommand: npm run build
     startCommand: npm start
     envVars:
@@ -10,3 +12,4 @@ services:
       - key: GEMINI_API_KEY
         sync: false
     healthCheckPath: /api/health
+    autoDeploy: true

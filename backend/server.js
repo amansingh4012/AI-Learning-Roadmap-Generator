@@ -40,8 +40,15 @@ if (USE_DEMO_MODE) {
 app.use(cors());
 app.use(express.json());
 
+// Logging middleware for production debugging
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.path}`);
+  next();
+});
+
 // Serve static files from the React app (for production)
 const frontendPath = path.join(__dirname, '../frontend/dist');
+console.log('📁 Static files path:', frontendPath);
 app.use(express.static(frontendPath));
 
 /**

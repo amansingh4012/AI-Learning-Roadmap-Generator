@@ -1,0 +1,36 @@
+# Files to ignore during Render deployment
+# Reduces deployment size and time
+
+# Development files
+*.md
+!README.md
+TESTING_GUIDE.md
+TROUBLESHOOTING.md
+DEPLOY_NOW.md
+QUICK_DEPLOY_CHECKLIST.md
+RENDER_DEPLOYMENT_GUIDE.md
+DEPLOYMENT_READY.md
+
+# Documentation
+docs/
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# Testing
+test/
+tests/
+*.test.js
+*.spec.js
+coverage/
+
+# Misc
+.DS_Store
+Thumbs.db
